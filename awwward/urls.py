@@ -22,6 +22,7 @@ from django.urls import path
 
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('',include('projects.urls')),
     path('accounts/',include('registration.backends.simple.urls')),
@@ -32,6 +33,13 @@ urlpatterns = [
         route='logout/',
         view=views.LogoutView.as_view(),
         name='logout'
+    ),
+
+    path(
+        route='login/',
+        view=views.LoginView.as_view(),
+        name='login'
     )
+
 
 ]
