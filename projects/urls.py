@@ -1,24 +1,25 @@
-from django.conf.urls import url,include
+from django.conf.urls import include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path
 
 urlpatterns=[
-    url('',views.index,name='Index'),
-    url('create/profile',views.create_profile, name='create-profile'),
-    url('new/project',views.new_project, name='new-project'),
-    url('directory/',views.directory, name='directory'),
-    url('profile/',views.profile, name='profile'),
-    url('site/(\d+)',views.site,name='site'),
-    url('search/',views.search_results, name='search_results'),
-    url('user/(?P<username>\w{0,50})',views.user_profile,name='user-profile'),
+    path('',views.index,name='Index'),
+    path('create/profile',views.create_profile, name='create-profile'),
+    path('new/project',views.new_project, name='new-project'),
+    path('directory/',views.directory, name='directory'),
+    path('profile/',views.profile, name='profile'),
+    path('site/(\d+)',views.site,name='site'),
+    path('search/',views.search_results, name='search_results'),
+    path('user/(?P<username>\w{0,50})',views.user_profile,name='user-profile'),
 
-    url('api/profiles/', views.ProfileList.as_view()),
-    url('api/projects/', views.ProjectList.as_view()),
-    url('api/categories/', views.categoriesList.as_view()),
-    url('api/countries/', views.countriesList.as_view()),
-    url('api/technologies/', views.technologiesList.as_view()),
-    url('api/colors/', views.colorsList.as_view()),
+    path('api/profiles/', views.ProfileList.as_view()),
+    path('api/projects/', views.ProjectList.as_view()),
+    path('api/categories/', views.categoriesList.as_view()),
+    path('api/countries/', views.countriesList.as_view()),
+    path('api/technologies/', views.technologiesList.as_view()),
+    path('api/colors/', views.colorsList.as_view()),
 
 ]
 
